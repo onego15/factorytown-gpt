@@ -2,6 +2,10 @@
 
 森と川に囲まれた高原に、小さなものづくりの街を育てるブラウザ向け3D工場ゲームです。木組みの工房、風車、麦畑、テラコッタの屋根、動く荷物を、柔らかな朝の光で描いたジオラマにしました。
 
+**ブラウザで遊ぶ：[こもれび工房 — GitHub Pages](https://onego15.github.io/factorytown-gpt/)**
+
+`main` へのpush時にGitHub Actionsでテスト・ビルドを実行し、`dist/` をGitHub Pagesへ公開します。公開版とローカル版の保存データはURLが異なるため別々です。
+
 ![実際に動作するゲームのプレイ録画](docs/demo.gif)
 
 **GIFは本物のブラウザ実行画面です。** Playwrightで実際に建設した街の保存データを再開し、設備の選択、カメラのズームと回転を操作して録画しました。[元の実録画動画](docs/demo.webm)から160フレームを抽出し、約20秒のGIFにしています。生成画像や架空のプレイ映像は使っていません。録画は `scripts/record-video.mjs`、GIF化は `scripts/video-to-gif.py` です。連続スクリーンショットから作る別方式も `scripts/record-demo.mjs` と `scripts/make-gif.py` に残しています。
