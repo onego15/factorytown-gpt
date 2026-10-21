@@ -1,0 +1,11 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs';
+fs.mkdirSync('.playwright/video',{recursive:true});
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-webgl','--ignore-gpu-blocklist']});
+const context=await browser.newContext({viewport:{width:1440,height:1000},recordVideo:{dir:'.playwright/video',size:{width:960,height:667}}});
+const page=await context.newPage();const save=fs.readFileSync('docs/test-save.json','utf8');await page.addInitScript(raw=>localStorage.setItem('komorebi-save-v1',raw),save);
+await page.goto('http://127.0.0.1:5173');await page.waitForFunction(()=>window.komorebi);await page.locator('[data-speed="2"]').click();
+await page.keyboard.press('KeyX');for(const x of [10,11,12]){const p=await page.evaluate(x=>komorebi.project(x,18),x);await page.mouse.click(p.x,p.y);}await page.keyboard.press('Escape');await page.waitForTimeout(3000);
+const p=await page.evaluate(()=>komorebi.project(9,15));await page.mouse.click(p.x,p.y);await page.waitForTimeout(4000);await page.locator('#inspector .close').click();await page.mouse.move(770,510);await page.mouse.wheel(0,-300);await page.waitForTimeout(5000);
+await page.mouse.move(780,510);await page.mouse.down({button:'right'});await page.mouse.move(845,530,{steps:30});await page.mouse.up({button:'right'});await page.waitForTimeout(5000);await page.locator('#home').click();await page.waitForTimeout(2000);
+await context.close();const source=await page.video().path();fs.copyFileSync(source,'docs/demo.webm');console.log('Actual browser video: docs/demo.webm');await browser.close();

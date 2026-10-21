@@ -1,0 +1,10 @@
+import {chromium} from '@playwright/test';
+import fs from 'node:fs';
+fs.mkdirSync('docs',{recursive:true});
+const browser=await chromium.launch({channel:'chrome',headless:true,args:['--enable-webgl','--ignore-gpu-blocklist']});
+const page=await browser.newPage({viewport:{width:1440,height:1000},deviceScaleFactor:1});
+page.on('pageerror',e=>console.error('BROWSER ERROR',e));
+await page.goto(process.argv[2]||'http://127.0.0.1:5173');await page.waitForFunction(()=>!!window.komorebi);await page.waitForTimeout(3500);
+await page.screenshot({path:'docs/first-look.png'});
+console.log(await page.evaluate(()=>({buildings:komorebi.state.buildings.length,coins:komorebi.state.coins,renderer:komorebi.world.renderer.info.render})));
+await browser.close();

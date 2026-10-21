@@ -1,0 +1,11 @@
+{
+  "frames": 100,
+  "meanFrameMs": 16.20399999982117,
+  "drawCalls": 623,
+  "triangles": 125399,
+  "viewport": [
+    1440,
+    1000
+  ],
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/155.0.0.0 Safari/537.36"
+}

@@ -1,0 +1,24 @@
+{
+  "time": "2026-10-21T00:47:20.793Z",
+  "results": [
+    "WebGL scene and Japanese UI boot without runtime error",
+    "Starter conveyor lines deliver real planks and bread at 4× speed",
+    "Build conveyor using palette and terrain click",
+    "Select and rotate placed conveyor",
+    "Demolish with refund",
+    "Water construction rejected with visible reason",
+    "Factory upgrade changes its level and throughput",
+    "Research unlocks metal production",
+    "Built a complete seven-tile iron production line through UI",
+    "UI-built iron chain produces and delivers gears",
+    "Save and browser reload retain new line, delivered goods, research and upgraded building",
+    "Restored speed is correctly reflected in UI",
+    "Production report opens and closes",
+    "Camera rotates and zooms with pointer controls",
+    "Help is accessible and returns to the game",
+    "Shift-drag lays a continuous conveyor row",
+    "1280×720 viewport renders",
+    "No uncaught browser errors"
+  ],
+  "errors": []
+}

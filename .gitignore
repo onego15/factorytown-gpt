@@ -1,0 +1,9 @@
+node_modules/
+dist/
+.playwright/
+.npm-cache/
+
+docs/frames/
+docs/test-failure.png
+
+docs/video-frames/
